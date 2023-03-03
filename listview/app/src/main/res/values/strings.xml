@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">listview</string>
+    <-array name=" nama_negara">
+    <item>Afganistan</item>
+    <item> Albania  </item>
+    <item> Aljazair </item>
+    <item>Amerika Serikat </item>
+    <item> Andorra   </item>
+    <item>Angola    </item>
+    <item>Antigua    </item>
+    <item>Arab Saudi </item>
+    </string-array>
+</resources>
+
