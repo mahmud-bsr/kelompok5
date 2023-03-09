@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initComponents();
+        onClickValidate();
 
         dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
 
@@ -64,10 +65,8 @@ public class MainActivity extends AppCompatActivity {
             RadioButton rdbtn = findViewById(gender.getCheckedRadioButtonId());
             String data = nama.getText().toString()+"\n"
                     + alamat.getText().toString()+"\n"+ pass.getText().toString()+"\n"+ tgl.getText().toString()+"\n"+ rdbtn.getText().toString()+"\n";
-                Toast.makeText(this, "Tersubmitkan", Toast.LENGTH_SHORT).show();
         });
     }
-
 
     public void initComponents(){
         this.tgl = findViewById(R.id.txt_date);
@@ -76,9 +75,19 @@ public class MainActivity extends AppCompatActivity {
         this.pass = findViewById(R.id.txt_pass);
         this.submit = findViewById(R.id.btn_submit);
         this.gender = findViewById(R.id.grp_gen);
-
     }
-    public void coba(View view) {
-        Toast.makeText(this, "Tersubmitkan", Toast.LENGTH_SHORT).show();
+
+    public void onClickValidate() {
+        if (nama.getText().toString().length()==0){
+            nama.setError("Nama sek");
+        } else if (tgl.getText().toString().length()==0) {
+            tgl.setError("gk lahiran ya?");
+        } else if (alamat.getText().toString().length()==0) {
+            alamat.setError("alamat jangan lupa");
+        } else if (pass.getText().toString().length()==0) {
+            pass.setError("biar aman bro");
+        }else {
+            Toast.makeText(this, "Tersubmitkan", Toast.LENGTH_SHORT).show();
+        }
     }
 }
