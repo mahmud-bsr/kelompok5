@@ -10,14 +10,13 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 //DatePicker datePicker = (DatePicker) findViewById(R.id.datePicker);
 
-public class MainActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
 
     private EditText tgl, nama, alamat, pass;
     private RadioGroup gender;
@@ -29,9 +28,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_register);
         initComponents();
-        onClickValidate();
+//        onClickValidate();
 
         dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
 
@@ -59,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         this.tgl.setOnClickListener(view -> {
-            new DatePickerDialog(MainActivity.this,date,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();
+            new DatePickerDialog(RegisterActivity.this,date,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();
         });
         this.submit.setOnClickListener(view -> {
             RadioButton rdbtn = findViewById(gender.getCheckedRadioButtonId());
@@ -69,25 +68,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void initComponents(){
-        this.tgl = findViewById(R.id.txt_date);
+//        this.tgl = findViewById(R.id.txt_date);
         this.nama = findViewById(R.id.txt_name);
         this.alamat = findViewById(R.id.txt_alamat);
         this.pass = findViewById(R.id.txt_pass);
         this.submit = findViewById(R.id.btn_submit);
         this.gender = findViewById(R.id.grp_gen);
+
     }
 
-    public void onClickValidate() {
-        if (nama.getText().toString().length()==0){
-            nama.setError("Nama sek");
-        } else if (tgl.getText().toString().length()==0) {
-            tgl.setError("gk lahiran ya?");
-        } else if (alamat.getText().toString().length()==0) {
-            alamat.setError("alamat jangan lupa");
-        } else if (pass.getText().toString().length()==0) {
-            pass.setError("biar aman bro");
-        }else {
-            Toast.makeText(this, "Tersubmitkan", Toast.LENGTH_SHORT).show();
-        }
-    }
+
+
 }
