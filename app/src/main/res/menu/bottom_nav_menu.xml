@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/person"
+        android:title="Person"
+        android:icon="@drawable/ic_gue_foreground"/>
+    <item
+        android:id="@+id/waduh"
+        android:title="Waduh"
+        android:icon="@drawable/ic_waduh_foreground"/>
+    <item
+        android:id="@+id/nonPerson"
+        android:title="Non Person"
+        android:icon="@drawable/ic_laporan_foreground"/>
+
+</menu>
