@@ -32,5 +32,12 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        forget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, ForgetActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
