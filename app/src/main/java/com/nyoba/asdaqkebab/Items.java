@@ -1,33 +1,36 @@
 package com.nyoba.asdaqkebab;
 
 public class Items {
-    private String name;
-    private int quantity;
-    private int price;
+    private String tanggal;
+    private String kota;
+    private int pemasukan;
 
-    public Items(String name, int quantity, int price) {
-        this.name = name;
-        this.quantity = quantity;
-        this.price = price;
+    public Items(String tanggal, String kota, int pemasukan) {
+        this.tanggal = tanggal;
+        this.kota = kota;
+        this.pemasukan = pemasukan;
     }
-    public String getName() {
-        return name;
+    public String getTanggal() {
+        return tanggal;
     }
-    public void setName() {
-        this.name = name;
+    public void setTanggal() {
+        this.tanggal = tanggal;
     }
-    public int getQuantity() {
-        return quantity;
+    public String getKota() {
+        return kota;
     }
-    public void setQuantity() {
-        this.quantity = quantity;
-    }
+    public void setKota() {
 
-    public int getPrice() {
-        return price;
+        this.kota = kota;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public int getPemasukan() {
+
+        return pemasukan;
+    }
+
+    public void setPemasukan(int pemasukan) {
+
+        this.pemasukan = pemasukan;
     }
 }

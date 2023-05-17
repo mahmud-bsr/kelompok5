@@ -1,5 +1,6 @@
 package com.nyoba.asdaqkebab;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,7 +8,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -19,18 +22,33 @@ import java.util.Date;
  */
 public class TransaksiFragment extends Fragment {
 
-
+    private Button tmblTambah;
 
 
     public TransaksiFragment() {
         // Required empty public constructor
     }
 
+
+
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_laporan, container, false);
+        Button tmblTambah = new Button(getActivity());
+//        tmblTambah = (Button) view.findViewById(R.id.btn_tambah);
 
+        tmblTambah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showToast("Barang ditambahkan");
+            }
+        });
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_transaksi, container, false);
+    }
+    private void  showToast(String message) {
+        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }
 }

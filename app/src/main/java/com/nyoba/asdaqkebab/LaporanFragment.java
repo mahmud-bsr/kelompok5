@@ -37,9 +37,13 @@ public class LaporanFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_laporan, container, false);
 
-        String jsonData = "[{'item':'Sawi', 'quantity': 35, 'price': 4500}," +
-                "{'item': 'Daging Ayam', 'quantity': 5, 'price': 26900}," +
-                "{'item': 'Saus ABC', 'quantity': 10, 'price': 15000}]";
+        String jsonData = "[{'tanggal': '20/11/2023', 'kota': 'Jember', 'pemasukkan': 450000}," +
+                "{'tanggal': '20/11/2024', 'kota': 'P.Bun', 'pemasukkan': 450000}," +
+                "{'tanggal': '20/11/2025', 'kota': 'Prbo', 'pemasukkan': 450000}," +
+                "{'tanggal': '20/11/2026', 'kota': 'Kaliurang', 'pemasukkan': 450000}," +
+                "{'tanggal': '20/11/2027', 'kota': 'Kaliwates', 'pemasukkan': 450000}," +
+                "{'tanggal': '20/11/2028', 'kota': 'Kotalama', 'pemasukkan': 450000}," +
+                "{'tanggal': '20/11/2029', 'kota': 'Bondowoso', 'pemasukkan': 450000}]";
         setData(jsonData);
 
         recyclerView = view.findViewById(R.id.rv_item);
@@ -58,9 +62,9 @@ public class LaporanFragment extends Fragment {
             itemsArrayList = new ArrayList<>();
             for (int i=0; i<jsonArray.length(); i++){
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
-                Items items = new Items(jsonObject.getString("item"),
-                        jsonObject.getInt("quantity"),
-                        jsonObject.getInt("price"));
+                Items items = new Items(jsonObject.getString("tanggal"),
+                        jsonObject.getString("kota"),
+                        jsonObject.getInt("pemasukkan"));
                 itemsArrayList.add(items);
             }
         } catch (JSONException e) {

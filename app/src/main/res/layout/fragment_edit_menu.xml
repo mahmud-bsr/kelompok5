@@ -9,6 +9,186 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:text="Edit Menu" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="210dp"
+        android:orientation="vertical">
+
+        <TableLayout
+            android:id="@+id/tabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="3dp"
+            android:background="@color/design_default_color_primary"
+            android:collapseColumns="1,2"
+            >
+
+            <TableRow
+                android:background="#413F3F"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nama"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="#FFFEFE" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jumlah"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="#FFFEFE" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Harga"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="#FFFEFE" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tortilla"
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    android:gravity="center"
+                    android:background="#FFFEFE"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="60 biji"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:background="#FFFEFE"
+                    android:layout_margin="1dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="150000"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_margin="1dp"
+                    android:background="#FFFEFE"/>
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sawi"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:background="#FFFEFE"
+                    android:layout_margin="1dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="100 ikat"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:background="#FFFEFE"
+                    android:layout_margin="1dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="56000"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:background="#FFFEFE"
+                    android:layout_margin="1dp"/>
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Daging Ayam"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:background="#FFFEFE"
+                    android:layout_margin="1dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10 kg"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:background="#FFFEFE"
+                    android:layout_margin="1dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="200000"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:background="#FFFEFE"
+                    android:layout_margin="1dp"/>
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Daging Sapi"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:background="#FFFEFE"
+                    android:layout_margin="1dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20 kg"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:background="#FFFEFE"
+                    android:layout_margin="1dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1200000"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:background="#FFFEFE"
+                    android:layout_margin="1dp"/>
+
+            </TableRow>
+
+        </TableLayout>
+
+        <Button
+            android:id="@+id/Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tunjukkan detail"
+            android:onClick="ciutkanTabel"
+            android:layout_gravity="right"
+            android:layout_margin="7dp"/>
+    </LinearLayout>
 
 </FrameLayout>

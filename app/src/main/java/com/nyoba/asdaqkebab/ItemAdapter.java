@@ -27,9 +27,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ItemAdapter.ItemViewHolder itemViewHolder, int i) {
-        itemViewHolder.tvItem.setText(datalist.get(i).getName());
-        itemViewHolder.tvQuantity.setText(String.valueOf(datalist.get(i).getQuantity()));
-        itemViewHolder.tvPrice.setText(String.valueOf(datalist.get(i).getPrice()));
+        itemViewHolder.tvTanggal.setText(datalist.get(i).getTanggal());
+        itemViewHolder.tvKota.setText(String.valueOf(datalist.get(i).getKota()));
+        itemViewHolder.tvPemasukan.setText(String.valueOf(datalist.get(i).getPemasukan()));
     }
 
     @Override
@@ -37,13 +37,13 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         return (datalist !=null) ? datalist.size() : 0;
     }
     public class ItemViewHolder extends RecyclerView.ViewHolder {
-        private TextView tvItem, tvQuantity, tvPrice;
+        private TextView tvTanggal, tvKota, tvPemasukan;
 
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvItem = (TextView) itemView.findViewById(R.id.tv_items);
-            tvQuantity = (TextView) itemView.findViewById(R.id.tv_quantity);
-            tvPrice = (TextView) itemView.findViewById(R.id.tv_price);
+            tvTanggal = (TextView) itemView.findViewById(R.id.tv_tanggal);
+            tvKota = (TextView) itemView.findViewById(R.id.tv_kota);
+            tvPemasukan = (TextView) itemView.findViewById(R.id.tv_pemasukan);
         }
     }
 }
