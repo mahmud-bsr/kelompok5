@@ -2,36 +2,78 @@ package com.nyoba.asdaqkebab;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TableLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.nyoba.asdaqkebab.databinding.ActivityHomeBinding;
+import com.nyoba.asdaqkebab.databinding.FragmentLaporanBinding;
+
+import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity implements
         BottomNavigationView.OnNavigationItemSelectedListener {
 
     BottomNavigationView bottomNavView;
     private boolean tabelku = false;
+    private FragmentLaporanBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = FragmentLaporanBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_home);
+        setContentView(binding.getRoot());
+        final ArrayList<Items> laplist = Contstants.getItemsData();
+        binding.rvItem.setLayoutManager(new LinearLayoutManager(this));
+        binding.rvItem.setHasFixedSize(true);
+        final ItemAdapter ItemAdapter = new ItemAdapter(laplist);
+        binding.rvItem.setAdapter(ItemAdapter);
+        ItemAdapter.setOnClickListener(new ItemAdapter.OnClickListener() {
+            @Override
+            public void onClick(int position, Items model) {
+                Intent intent = new Intent(HomeActivity.this, LaporanCabangActivity.class);
+                intent.putExtra(NEXT_SCREEN, model);
+                startActivity(intent);
+            }
+        });
+
+
+
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setTitle("CabangIN");
+        toolbar.setSubtitle("username");
+        toolbar.setNavigationIcon(R.drawable.baseline_logout_24);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+//        toolbar.setLogo(R.drawable.ic_logo_background);
 
         bottomNavView = findViewById(R.id.bottomNavigationView);
 
         bottomNavView.setOnNavigationItemSelectedListener(this);
         bottomNavView.setSelectedItemId(R.id.transaksi);
+
     }
+    public  static final String NEXT_SCREEN = "details_screen";
 
     TransaksiFragment transaksiFragment = new TransaksiFragment();
     LaporanFragment laporanFragment = new LaporanFragment();
-    EditBarang editBarang = new EditBarang();
-    EditMenuFragment editMenuFragment = new EditMenuFragment();
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item){
@@ -47,19 +89,6 @@ public class HomeActivity extends AppCompatActivity implements
                 getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.flFragment, laporanFragment)
-                        .commit();
-                return true;
-
-            case R.id.ed_barang:
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.flFragment, editBarang)
-                        .commit();
-                return true;
-            case R.id.ed_menu:
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.flFragment, editMenuFragment)
                         .commit();
                 return true;
         }

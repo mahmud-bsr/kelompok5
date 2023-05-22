@@ -8,13 +8,5 @@
         android:id="@+id/laporan"
         android:title="Laporan"
         android:icon="@drawable/ic_waduh_foreground"/>
-    <item
-        android:id="@+id/ed_barang"
-        android:title="Edit Barang"
-        android:icon="@drawable/ic_add_foreground"/>
-    <item
-        android:id="@+id/ed_menu"
-        android:title="Edit Menu"
-        android:icon="@drawable/ic_menu_foreground"/>
 
 </menu>

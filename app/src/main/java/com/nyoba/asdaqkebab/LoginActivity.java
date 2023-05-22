@@ -12,7 +12,7 @@ import android.widget.TextView;
 public class LoginActivity extends AppCompatActivity {
 
     Button login;
-    TextView forget, register;
+    TextView forget;
     EditText nick, pass;
 
     @Override
@@ -20,7 +20,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login2);
 
-        register = (TextView) findViewById(R.id.txt_register);
         login = (Button) findViewById(R.id.bt_login);
         forget = (TextView) findViewById(R.id.tx_forget);
         nick = (EditText) findViewById(R.id.tx_nick);
@@ -34,13 +33,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(intent);
-            }
-        });
         forget.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

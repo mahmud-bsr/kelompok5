@@ -4,8 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="10dp"
-    android:layout_marginTop="10dp"
     android:padding="5dp"
     tools:context=".TransaksiFragment">
 
@@ -15,10 +13,12 @@
         android:id="@+id/firstFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:drawablePadding="10dp"
         android:text="Transaksi"
         android:textColor="#000000"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="normal|bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +41,7 @@
         android:id="@+id/tx_harga"
         android:layout_width="161dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="170dp"
         android:ems="10"
         android:hint="Harga"
         android:inputType="numberSigned"
@@ -52,7 +52,7 @@
         android:id="@+id/tx_jumlah_barang"
         android:layout_width="161dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="120dp"
         android:ems="10"
         android:hint="Jumlah Barang"
         android:inputType="number"
@@ -65,15 +65,23 @@
         android:layout_marginTop="210dp"
         android:orientation="vertical">
 
+        <Button
+            android:id="@+id/Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_margin="7dp"
+            android:onClick="ciutkanTabel"
+            android:text="Tunjukkan detail" />
+
         <TableLayout
             android:id="@+id/tabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:padding="3dp"
             android:background="@color/design_default_color_primary"
             android:collapseColumns="1,2"
-            >
+            android:padding="3dp">
 
             <TableRow
                 android:background="#413F3F"
@@ -82,29 +90,29 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
                     android:text="Nama"
-                    android:textStyle="bold"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textColor="#FFFEFE" />
+                    android:textColor="#FFFEFE"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
                     android:text="Jumlah"
-                    android:textStyle="bold"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textColor="#FFFEFE" />
+                    android:textColor="#FFFEFE"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
                     android:text="Harga"
-                    android:textStyle="bold"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textColor="#FFFEFE" />
+                    android:textColor="#FFFEFE"
+                    android:textStyle="bold" />
 
             </TableRow>
 
@@ -113,28 +121,29 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tortilla"
-                    android:layout_weight="1"
                     android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFEFE"
                     android:gravity="center"
-                    android:background="#FFFEFE"/>
+                    android:text="Tortilla" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="60 biji"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:background="#FFFEFE"
-                    android:layout_margin="1dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="150000"
-                    android:layout_weight="1"
-                    android:gravity="center"
                     android:layout_margin="1dp"
-                    android:background="#FFFEFE"/>
+                    android:layout_weight="1"
+                    android:background="#FFFEFE"
+                    android:gravity="center"
+                    android:text="60 biji" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFEFE"
+                    android:gravity="center"
+                    android:text="150000" />
 
             </TableRow>
 
@@ -143,28 +152,29 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Sawi"
+                    android:layout_margin="1dp"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#FFFEFE"
-                    android:layout_margin="1dp"/>
+                    android:gravity="center"
+                    android:text="Sawi" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="100 ikat"
+                    android:layout_margin="1dp"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#FFFEFE"
-                    android:layout_margin="1dp"/>
+                    android:gravity="center"
+                    android:text="100 ikat" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="56000"
+                    android:layout_margin="1dp"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#FFFEFE"
-                    android:layout_margin="1dp"/>
+                    android:gravity="center"
+                    android:text="56000" />
 
             </TableRow>
 
@@ -173,28 +183,29 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Daging Ayam"
+                    android:layout_margin="1dp"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#FFFEFE"
-                    android:layout_margin="1dp"/>
+                    android:gravity="center"
+                    android:text="Daging Ayam" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="10 kg"
+                    android:layout_margin="1dp"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#FFFEFE"
-                    android:layout_margin="1dp"/>
+                    android:gravity="center"
+                    android:text="10 kg" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="200000"
+                    android:layout_margin="1dp"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#FFFEFE"
-                    android:layout_margin="1dp"/>
+                    android:gravity="center"
+                    android:text="200000" />
 
             </TableRow>
 
@@ -203,52 +214,72 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Daging Sapi"
+                    android:layout_margin="1dp"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#FFFEFE"
-                    android:layout_margin="1dp"/>
+                    android:gravity="center"
+                    android:text="Daging Sapi" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="20 kg"
+                    android:layout_margin="1dp"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#FFFEFE"
-                    android:layout_margin="1dp"/>
+                    android:gravity="center"
+                    android:text="20 kg" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1200000"
+                    android:layout_margin="1dp"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#FFFEFE"
-                    android:layout_margin="1dp"/>
+                    android:gravity="center"
+                    android:text="1200000" />
 
             </TableRow>
 
         </TableLayout>
 
-        <Button
-            android:id="@+id/Button"
-            android:layout_width="wrap_content"
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tunjukkan detail"
-            android:onClick="ciutkanTabel"
-            android:layout_gravity="right"
-            android:layout_margin="7dp"/>
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_tambah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Tambah" />
+
+            <Button
+                android:id="@+id/btn_hapus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="55dp"
+                android:text="Hapus" />
+
+            <Button
+                android:id="@+id/btn_batal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="55dp"
+                android:text="Batal" />
+        </LinearLayout>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_tambah"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_marginTop="145dp"
-        android:layout_marginRight="10dp"
-        android:text="Tambah"
-        android:textSize="12sp" />
+    <!--    <Button-->
+    <!--        android:id="@+id/btn_tambah"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_gravity="right"-->
+    <!--        android:layout_marginTop="145dp"-->
+    <!--        android:layout_marginRight="10dp"-->
+    <!--        android:text="Tambah"-->
+    <!--        android:textSize="12sp" />-->
 
 
 </FrameLayout>
