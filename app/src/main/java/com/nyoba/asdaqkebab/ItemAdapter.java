@@ -1,10 +1,13 @@
 package com.nyoba.asdaqkebab;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,7 +33,7 @@ import java.util.ArrayList;
 //        Items item = items.get(position);
 //        holder.tv_tanggal.setText(item.getTanggal());
 //        holder.tv_kota.setText(item.getKota());
-//        holder.tv_pemasukan.setText(item.getPemasukan());
+//        holder.tv_pemasukan.setText(item.getPemasukkan());
 //
 //        holder.itemView.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -119,16 +122,19 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         Items item = datalist.get(position);
         itemViewHolder.tvTanggal.setText(datalist.get(position).getTanggal());
         itemViewHolder.tvKota.setText(String.valueOf(datalist.get(position).getKota()));
-        itemViewHolder.tvPemasukan.setText(String.valueOf(datalist.get(position).getPemasukkan()));
+        itemViewHolder.tvPemasukan.setText(String.valueOf(datalist.get(position).getPemasukan()));
 
         itemViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int clickedPosition = itemViewHolder.getAdapterPosition();
-                if (onClickListener != null) {
-                    onClickListener.onClick(clickedPosition, datalist.get(clickedPosition));
+//                if (onClickListener != null) {
+//                    onClickListener.onClick(clickedPosition, datalist.get(clickedPosition));
 //                    onClickListener.onClick(position, item);
-                }
+                Context context = view.getContext();
+                Intent intent = new Intent(context, LaporanCabangActivity.class);
+                intent.putExtra("ITEM_POSITION", clickedPosition);
+                context.startActivity(intent);
             }
         });
     }
@@ -192,13 +198,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
             tvTanggal = itemView.findViewById(R.id.tv_tanggal);
             tvKota = itemView.findViewById(R.id.tv_kota);
             tvPemasukan = itemView.findViewById(R.id.tv_pemasukan);
-//            layout.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    Toast.makeText(itemView.getContext(), "test" + Integer.toString(getPosition()), Toast.LENGTH_SHORT).show();
-//
-//                }
-//            });
+            
         }
     }
 }

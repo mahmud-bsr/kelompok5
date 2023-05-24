@@ -32,20 +32,20 @@ public class HomeActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         binding = FragmentLaporanBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_home);
-        setContentView(binding.getRoot());
-        final ArrayList<Items> laplist = Contstants.getItemsData();
-        binding.rvItem.setLayoutManager(new LinearLayoutManager(this));
-        binding.rvItem.setHasFixedSize(true);
-        final ItemAdapter ItemAdapter = new ItemAdapter(laplist);
-        binding.rvItem.setAdapter(ItemAdapter);
-        ItemAdapter.setOnClickListener(new ItemAdapter.OnClickListener() {
-            @Override
-            public void onClick(int position, Items model) {
-                Intent intent = new Intent(HomeActivity.this, LaporanCabangActivity.class);
-                intent.putExtra(NEXT_SCREEN, model);
-                startActivity(intent);
-            }
-        });
+//        setContentView(binding.getRoot());
+//        final ArrayList<Items> laplist = Contstants.getItemsData();
+//        binding.rvItem.setLayoutManager(new LinearLayoutManager(this));
+//        binding.rvItem.setHasFixedSize(true);
+//        final ItemAdapter ItemAdapter = new ItemAdapter(laplist);
+//        binding.rvItem.setAdapter(ItemAdapter);
+//        ItemAdapter.setOnClickListener(new ItemAdapter.OnClickListener() {
+//            @Override
+//            public void onClick(int position, Items model) {
+//                Intent intent = new Intent(HomeActivity.this, LaporanCabangActivity.class);
+//                intent.putExtra(NEXT_SCREEN, model);
+//                startActivity(intent);
+//            }
+//        });
 
 
 
@@ -62,7 +62,6 @@ public class HomeActivity extends AppCompatActivity implements
                 finish();
             }
         });
-//        toolbar.setLogo(R.drawable.ic_logo_background);
 
         bottomNavView = findViewById(R.id.bottomNavigationView);
 

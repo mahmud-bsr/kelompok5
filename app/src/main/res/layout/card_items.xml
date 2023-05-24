@@ -7,7 +7,7 @@
     card_view:cardElevation="3dp"
     card_view:cardUseCompatPadding="true">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
@@ -27,6 +27,7 @@
                 android:text="12/11/2021"
                 android:textColor="#000000"
                 android:textSize="16sp"/>
+
             <TextView
                 android:id="@+id/tv_kota"
                 android:layout_width="match_parent"
@@ -36,13 +37,14 @@
                 android:paddingBottom="5dp"
                 android:text="Jember"
                 android:textAlignment="viewEnd"
-                android:textColor="@color/design_default_color_primary_dark"
-                android:textSize="18sp"/>
+                android:textColor="@color/black"
+                android:textSize="18sp" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/tv_pemasukan"
                 android:layout_width="match_parent"
@@ -51,7 +53,7 @@
                 android:paddingRight="10dp"
                 android:paddingBottom="5dp"
                 android:text="200000"
-                android:textColor="@color/design_default_color_primary_dark"/>
+                android:textColor="@color/black" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

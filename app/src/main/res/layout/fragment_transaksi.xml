@@ -9,23 +9,6 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <TextView
-        android:id="@+id/firstFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:drawablePadding="10dp"
-        android:text="Transaksi"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:textStyle="normal|bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
         android:id="@+id/tx_nama_barang"
         android:layout_width="161dp"
@@ -35,7 +18,7 @@
         android:hint="Nama Barang"
         android:inputType="textPersonName"
         android:padding="10dp"
-        android:textSize="12sp" />
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/tx_harga"
@@ -46,7 +29,7 @@
         android:hint="Harga"
         android:inputType="numberSigned"
         android:padding="10dp"
-        android:textSize="12sp" />
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/tx_jumlah_barang"
@@ -57,7 +40,7 @@
         android:hint="Jumlah Barang"
         android:inputType="number"
         android:padding="10dp"
-        android:textSize="12sp" />
+        android:textSize="18sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -77,9 +60,9 @@
         <TableLayout
             android:id="@+id/tabel"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="370dp"
             android:layout_margin="10dp"
-            android:background="@color/design_default_color_primary"
+            android:background="@color/black"
             android:collapseColumns="1,2"
             android:padding="3dp">
 
@@ -93,6 +76,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Nama"
+                    android:textSize="18dp"
                     android:textColor="#FFFEFE"
                     android:textStyle="bold" />
 
@@ -102,6 +86,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Jumlah"
+                    android:textSize="18dp"
                     android:textColor="#FFFEFE"
                     android:textStyle="bold" />
 
@@ -111,6 +96,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Harga"
+                    android:textSize="18dp"
                     android:textColor="#FFFEFE"
                     android:textStyle="bold" />
 
@@ -125,7 +111,8 @@
                     android:layout_weight="1"
                     android:background="#FFFEFE"
                     android:gravity="center"
-                    android:text="Tortilla" />
+                    android:text="Kebab Turki Asli"
+                    android:textSize="18dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -134,7 +121,8 @@
                     android:layout_weight="1"
                     android:background="#FFFEFE"
                     android:gravity="center"
-                    android:text="60 biji" />
+                    android:text="10 biji"
+                    android:textSize="18dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -143,7 +131,8 @@
                     android:layout_weight="1"
                     android:background="#FFFEFE"
                     android:gravity="center"
-                    android:text="150000" />
+                    android:text="150000"
+                    android:textSize="18dp"/>
 
             </TableRow>
 
@@ -156,7 +145,8 @@
                     android:layout_weight="1"
                     android:background="#FFFEFE"
                     android:gravity="center"
-                    android:text="Sawi" />
+                    android:text="Kebab Normal"
+                    android:textSize="18dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -165,7 +155,8 @@
                     android:layout_weight="1"
                     android:background="#FFFEFE"
                     android:gravity="center"
-                    android:text="100 ikat" />
+                    android:text="14 biji"
+                    android:textSize="18dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -174,7 +165,8 @@
                     android:layout_weight="1"
                     android:background="#FFFEFE"
                     android:gravity="center"
-                    android:text="56000" />
+                    android:text="56000"
+                    android:textSize="18dp"/>
 
             </TableRow>
 
@@ -187,7 +179,8 @@
                     android:layout_weight="1"
                     android:background="#FFFEFE"
                     android:gravity="center"
-                    android:text="Daging Ayam" />
+                    android:text="Kebab Super"
+                    android:textSize="18dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -196,7 +189,8 @@
                     android:layout_weight="1"
                     android:background="#FFFEFE"
                     android:gravity="center"
-                    android:text="10 kg" />
+                    android:text="10 biji"
+                    android:textSize="18dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -205,7 +199,8 @@
                     android:layout_weight="1"
                     android:background="#FFFEFE"
                     android:gravity="center"
-                    android:text="200000" />
+                    android:text="200000"
+                    android:textSize="18dp"/>
 
             </TableRow>
 
@@ -218,7 +213,8 @@
                     android:layout_weight="1"
                     android:background="#FFFEFE"
                     android:gravity="center"
-                    android:text="Daging Sapi" />
+                    android:text="Kebab"
+                    android:textSize="18dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -227,7 +223,8 @@
                     android:layout_weight="1"
                     android:background="#FFFEFE"
                     android:gravity="center"
-                    android:text="20 kg" />
+                    android:text="20 biji"
+                    android:textSize="18dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -236,7 +233,8 @@
                     android:layout_weight="1"
                     android:background="#FFFEFE"
                     android:gravity="center"
-                    android:text="1200000" />
+                    android:text="120000"
+                    android:textSize="18dp"/>
 
             </TableRow>
 

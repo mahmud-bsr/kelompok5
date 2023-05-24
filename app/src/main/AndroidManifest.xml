@@ -14,35 +14,41 @@
         android:theme="@style/Theme.AsdaqKebab"
         tools:targetApi="31">
         <activity
-            android:name=".LaporanCabangActivity"
-            android:exported="false"
-            android:theme="@style/Theme.AsdaqKebab.NoActionBar"/>
-        <activity
-            android:name=".ConfirmForgetActivity"
-            android:exported="false"
-            android:theme="@style/Theme.AsdaqKebab.NoActionBar"/>
-        <activity
-            android:name=".OtpActivity"
-            android:exported="false"
-            android:theme="@style/Theme.AsdaqKebab.NoActionBar"/>
-        <activity
-            android:name=".ForgetActivity"
-            android:exported="false"
-            android:theme="@style/Theme.AsdaqKebab.NoActionBar"/>
-        <activity
-            android:name=".HomeActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AsdaqKebab.NoActionBar"/>
-        <activity
-            android:name=".LoginActivity"
+            android:name=".AwalanActivity"
             android:exported="true"
             android:theme="@style/Theme.AsdaqKebab.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW"/>
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".LaporanCabangActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AsdaqKebab.NoActionBar" />
+        <activity
+            android:name=".ConfirmForgetActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AsdaqKebab.NoActionBar" />
+        <activity
+            android:name=".OtpActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AsdaqKebab.NoActionBar" />
+        <activity
+            android:name=".ForgetActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AsdaqKebab.NoActionBar" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AsdaqKebab.NoActionBar" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AsdaqKebab.NoActionBar"/>
+
     </application>
 
 </manifest>
