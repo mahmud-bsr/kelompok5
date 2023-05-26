@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TableLayout;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.nyoba.asdaqkebab.databinding.ActivityHomeBinding;
@@ -27,11 +29,18 @@ public class HomeActivity extends AppCompatActivity implements
     private boolean tabelku = false;
     private FragmentLaporanBinding binding;
 
+    SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = FragmentLaporanBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_home);
+
+        TextView result = findViewById(R.id.txuser_toolbar);
+        sharedPreferences = getSharedPreferences("user_detail",MODE_PRIVATE);
+
+        result.setText(sharedPreferences.getString("username",null));
 //        setContentView(binding.getRoot());
 //        final ArrayList<Items> laplist = Contstants.getItemsData();
 //        binding.rvItem.setLayoutManager(new LinearLayoutManager(this));
@@ -46,19 +55,17 @@ public class HomeActivity extends AppCompatActivity implements
 //                startActivity(intent);
 //            }
 //        });
-
-
-
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+//        toolbar.setSubtitle(" ");
         getSupportActionBar().setTitle("CabangIN");
-        toolbar.setSubtitle("username");
         toolbar.setNavigationIcon(R.drawable.baseline_logout_24);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.clear();
+                editor.apply();
                 finish();
             }
         });
@@ -96,19 +103,19 @@ public class HomeActivity extends AppCompatActivity implements
 
     }
 
-    public void ciutkanTabel(View view) {
-        TableLayout table = findViewById(R.id.tabel);
-        Button pencet = findViewById(R.id.Button);
-
-        table.setColumnCollapsed(1, tabelku);
-        table.setColumnCollapsed(2, tabelku);
-
-        if (tabelku) {
-            tabelku = false;
-            pencet.setText("Tunjukkan detail");
-        } else {
-            tabelku = true;
-            pencet.setText("Detail tersembunyi");
-        }
-    }
+//    public void ciutkanTabel(View view) {
+//        TableLayout table = findViewById(R.id.tabel);
+//        Button pencet = findViewById(R.id.Button);
+//
+//        table.setColumnCollapsed(1, tabelku);
+//        table.setColumnCollapsed(2, tabelku);
+//
+//        if (tabelku) {
+//            tabelku = false;
+//            pencet.setText("Tunjukkan detail");
+//        } else {
+//            tabelku = true;
+//            pencet.setText("Detail tersembunyi");
+//        }
+//    }
 }

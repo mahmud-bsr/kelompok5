@@ -10,15 +10,15 @@
     <string name="skip">LEWATI</string>
     <string name="start">MULAI</string>
 
-    <string name="slide_1_title">KULINER</string>
-    <string name="slide_1_desc">Rasakan Berbagai Kuliner yang Akan Memanjakan Lidahmu</string>
+    <string name="slide_1_title">CabangIN</string>
+    <string name="slide_1_desc">Selamat datang di Aplikasi Laporan Transaksi dengan Cabang!</string>
 
-    <string name="slide_2_title">HOTEL</string>
-    <string name="slide_2_desc">Temukan Hotel yang Nyaman Untuk Istirahat Perjalananmu</string>
+    <string name="slide_2_title">Transaksi</string>
+    <string name="slide_2_desc">Mencatat transaksi dengan mudah dan cepat, </string>
 
-    <string name="slide_3_title">WISATA</string>
-    <string name="slide_3_desc">Destinasi Menarik Menantimu. Segera Pilih Destinasi Wisatamu</string>
+<!--    <string name="slide_3_title">WISATA</string>-->
+<!--    <string name="slide_3_desc">Melihat history transaksi, mencari informasi dan merujuk transaksi sebelumnya.</string>-->
 
     <string name="slide_4_title">GUIDE</string>
-    <string name="slide_4_desc">Cari Guide Untuk Menemani Perjalananmu Agar  semakin asyik </string>
+    <string name="slide_4_desc">Melihat laporan pemasukan dan juga pengeluaran. </string>
 </resources>
