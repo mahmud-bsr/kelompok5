@@ -19,6 +19,6 @@
 <!--    <string name="slide_3_title">WISATA</string>-->
 <!--    <string name="slide_3_desc">Melihat history transaksi, mencari informasi dan merujuk transaksi sebelumnya.</string>-->
 
-    <string name="slide_4_title">GUIDE</string>
+    <string name="slide_4_title">Laporan</string>
     <string name="slide_4_desc">Melihat laporan pemasukan dan juga pengeluaran. </string>
 </resources>
