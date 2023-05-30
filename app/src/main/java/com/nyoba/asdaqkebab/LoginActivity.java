@@ -38,16 +38,16 @@ public class LoginActivity extends AppCompatActivity {
                 String nick = tx_nick.getText().toString();
                 String pass = tx_pass.getText().toString();
 
-                if (nick.equals("rendy") && pass.equals("123456789")) {
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("nickname",nick);
-                    editor.putString("password",pass);
-                    editor.apply();
+//                if (nick.equals("ren") && pass.equals("12")) {
+//                    SharedPreferences.Editor editor = sharedPreferences.edit();
+//                    editor.putString("nickname",nick);
+//                    editor.putString("password",pass);
+//                    editor.apply();
                     Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                     startActivity(intent);
-                } else {
-                    Toast.makeText(LoginActivity.this, "Data gak valid", Toast.LENGTH_SHORT).show();
-                }
+//                } else {
+//                    Toast.makeText(LoginActivity.this, "Data gak valid", Toast.LENGTH_SHORT).show();
+//                }
             }
         });
 

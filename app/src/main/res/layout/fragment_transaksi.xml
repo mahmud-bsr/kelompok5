@@ -21,17 +21,6 @@
         android:textSize="18sp" />
 
     <EditText
-        android:id="@+id/tx_harga"
-        android:layout_width="161dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="110dp"
-        android:ems="10"
-        android:hint="Harga"
-        android:inputType="numberSigned"
-        android:padding="10dp"
-        android:textSize="18sp" />
-
-    <EditText
         android:id="@+id/tx_jumlah_barang"
         android:layout_width="161dp"
         android:layout_height="wrap_content"
@@ -42,216 +31,48 @@
         android:padding="10dp"
         android:textSize="18sp" />
 
-    <LinearLayout
+    <EditText
+        android:id="@+id/tx_harga"
+        android:layout_width="161dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="115dp"
+        android:ems="10"
+        android:hint="Harga"
+        android:inputType="numberSigned"
+        android:padding="10dp"
+        android:textSize="18sp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="579dp"
         android:layout_marginTop="210dp"
         android:orientation="vertical">
 
-<!--        <Button-->
-<!--            android:id="@+id/Button"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="right"-->
-<!--            android:layout_margin="7dp"-->
-<!--            android:onClick="ciutkanTabel"-->
-<!--            android:text="Tunjukkan detail" />-->
-
-        <TableLayout
-            android:id="@+id/tabel"
-            android:layout_width="match_parent"
-            android:layout_height="370dp"
-            android:layout_margin="10dp"
-            android:background="@color/black"
-            android:padding="3dp">
-
-            <TableRow
-                android:background="#413F3F"
-                android:padding="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Nama"
-                    android:textSize="18dp"
-                    android:textColor="#FFFEFE"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Jumlah"
-                    android:textSize="18dp"
-                    android:textColor="#FFFEFE"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Harga"
-                    android:textSize="18dp"
-                    android:textColor="#FFFEFE"
-                    android:textStyle="bold" />
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/row1"
-                android:clickable="true">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    android:background="#FFFEFE"
-                    android:gravity="center"
-                    android:text="Kebab Turki Asli"
-                    android:textSize="18dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    android:background="#FFFEFE"
-                    android:gravity="center"
-                    android:text="10 biji"
-                    android:textSize="18dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    android:background="#FFFEFE"
-                    android:gravity="center"
-                    android:text="150000"
-                    android:textSize="18dp"/>
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/row2"
-                android:clickable="true">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    android:background="#FFFEFE"
-                    android:gravity="center"
-                    android:text="Kebab Normal"
-                    android:textSize="18dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    android:background="#FFFEFE"
-                    android:gravity="center"
-                    android:text="14 biji"
-                    android:textSize="18dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    android:background="#FFFEFE"
-                    android:gravity="center"
-                    android:text="56000"
-                    android:textSize="18dp"/>
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/row3"
-                android:clickable="true">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    android:background="#FFFEFE"
-                    android:gravity="center"
-                    android:text="Kebab Super"
-                    android:textSize="18dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    android:background="#FFFEFE"
-                    android:gravity="center"
-                    android:text="10 biji"
-                    android:textSize="18dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    android:background="#FFFEFE"
-                    android:gravity="center"
-                    android:text="200000"
-                    android:textSize="18dp"/>
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/row4"
-                android:clickable="true">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    android:background="#FFFEFE"
-                    android:gravity="center"
-                    android:text="Kebab"
-                    android:textSize="18dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    android:background="#FFFEFE"
-                    android:gravity="center"
-                    android:text="20 biji"
-                    android:textSize="18dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    android:background="#FFFEFE"
-                    android:gravity="center"
-                    android:text="120000"
-                    android:textSize="18dp"/>
-
-            </TableRow>
-
-        </TableLayout>
-
+        <!--                <androidx.recyclerview.widget.RecyclerView-->
+        <!--                    android:id="@+id/recycler_view"-->
+        <!--                    android:layout_width="394dp"-->
+        <!--                    android:layout_height="426dp"-->
+        <!--                    android:layout_marginStart="3dp"-->
+        <!--                    android:layout_marginTop="1dp"-->
+        <!--                    android:layout_marginEnd="5dp"-->
+        <!--                    android:layout_marginBottom="7dp"-->
+        <!--                    android:orientation="horizontal"-->
+        <!--                    app:layout_constraintBottom_toTopOf="@+id/linearLayout"-->
+        <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+        <!--                    app:layout_constraintStart_toStartOf="parent"-->
+        <!--                    app:layout_constraintTop_toTopOf="parent" />-->
 
         <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="30dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tabel">
 
             <Button
                 android:id="@+id/btn_tambah"
@@ -274,17 +95,357 @@
                 android:layout_marginLeft="55dp"
                 android:text="Batal" />
         </LinearLayout>
-    </LinearLayout>
 
-    <!--    <Button-->
-    <!--        android:id="@+id/btn_tambah"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_gravity="right"-->
-    <!--        android:layout_marginTop="145dp"-->
-    <!--        android:layout_marginRight="10dp"-->
-    <!--        android:text="Tambah"-->
-    <!--        android:textSize="12sp" />-->
+        <!--        <Button-->
+        <!--            android:id="@+id/Button"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_gravity="right"-->
+        <!--            android:layout_margin="7dp"-->
+        <!--            android:onClick="ciutkanTabel"-->
+        <!--            android:text="Tunjukkan detail" />-->
+
+        <TableLayout
+            android:id="@+id/tabel"
+            android:layout_width="match_parent"
+            android:layout_height="370dp"
+            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="54dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="63dp"
+            android:background="@color/black"
+            android:padding="3dp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TableRow
+                android:background="#413F3F"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Nama"
+                    android:textColor="#FFFEFE"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Jumlah"
+                    android:textColor="#FFFEFE"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Harga"
+                    android:textColor="#FFFEFE"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/row1"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFEFE"
+                    android:gravity="center"
+                    android:text="Kebab Turki Asli"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFEFE"
+                    android:gravity="center"
+                    android:text="10 biji"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFEFE"
+                    android:gravity="center"
+                    android:text="150000"
+                    android:textSize="16sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/row2"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFEFE"
+                    android:gravity="center"
+                    android:text="Kebab Normal"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFEFE"
+                    android:gravity="center"
+                    android:text="14 biji"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFEFE"
+                    android:gravity="center"
+                    android:text="56000"
+                    android:textSize="16sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/row3"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFEFE"
+                    android:gravity="center"
+                    android:text="Kebab Super"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFEFE"
+                    android:gravity="center"
+                    android:text="10 biji"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFEFE"
+                    android:gravity="center"
+                    android:text="200000"
+                    android:textSize="16sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/row4"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFEFE"
+                    android:gravity="center"
+                    android:text="Kebab"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFEFE"
+                    android:gravity="center"
+                    android:text="20 biji"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFEFE"
+                    android:gravity="center"
+                    android:text="120000"
+                    android:textSize="16sp" />
+
+            </TableRow>
+            <TableRow
+                android:id="@+id/row5"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFEFE"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFEFE"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFEFE"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="16sp" />
+
+            </TableRow>
+            <TableRow
+                android:id="@+id/row6"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFEFE"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFEFE"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFEFE"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="16sp" />
+
+            </TableRow>
+            <TableRow
+                android:id="@+id/row7"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFEFE"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFEFE"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFEFE"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="16sp" />
+
+            </TableRow>
+            <TableRow
+                android:id="@+id/row8"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFEFE"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFEFE"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFEFE"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="16sp" />
+
+            </TableRow>
+
+        </TableLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </FrameLayout>
