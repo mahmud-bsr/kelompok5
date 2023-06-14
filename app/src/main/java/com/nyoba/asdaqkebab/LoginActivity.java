@@ -2,20 +2,39 @@ package com.nyoba.asdaqkebab;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.nyoba.asdaqkebab.apihelper.BaseApiService;
+
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class LoginActivity extends AppCompatActivity {
 
     Button login;
     TextView forget;
-    EditText tx_nick, tx_pass;
+    EditText nick, pass;
+    ProgressDialog loading;
+    Context mContext;
+    BaseApiService mApiService;
     SharedPreferences sharedPreferences;
 
     @Override
@@ -25,8 +44,8 @@ public class LoginActivity extends AppCompatActivity {
 
         login = (Button) findViewById(R.id.bt_login);
         forget = (TextView) findViewById(R.id.tx_forget);
-        tx_nick = (EditText) findViewById(R.id.tx_nick);
-        tx_pass = (EditText) findViewById(R.id.tx_pass);
+        nick = (EditText) findViewById(R.id.tx_nick);
+        pass = (EditText) findViewById(R.id.tx_pass);
 
         sharedPreferences = getSharedPreferences("user_detail", MODE_PRIVATE);
         sharedPreferences.contains("nickname");
@@ -35,13 +54,13 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String nick = tx_nick.getText().toString();
-                String pass = tx_pass.getText().toString();
 
-//                if (nick.equals("ren") && pass.equals("12")) {
+//                loading = ProgressDialog.show(mContext, null, "Harap Tunggu...",true, false);
+//                requestLogin();
+//                if (nick.equals("ren") && pass.equals("saya")) {
 //                    SharedPreferences.Editor editor = sharedPreferences.edit();
-//                    editor.putString("nickname",nick);
-//                    editor.putString("password",pass);
+//                    editor.putString("nickname", String.valueOf(nick));
+//                    editor.putString("password", String.valueOf(pass));
 //                    editor.apply();
                     Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                     startActivity(intent);
@@ -58,5 +77,39 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+    private void requestLogin() {
+        mApiService.loginRequest(nick.getText().toString(), pass.getText().toString())
+                .enqueue(new Callback<ResponseBody>() {
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody>response) {
+                        if (response.isSuccessful()) {
+                            loading.dismiss();
+                            try {
+                                JSONObject jsonResult = new JSONObject(response.body().string());
+                                if (jsonResult.getString("error").equals("false")){
+                                    Toast.makeText(mContext, "Berhasil Login", Toast.LENGTH_SHORT).show();
+                                    String nick = jsonResult.getJSONObject("nick").getString("nama");
+                                    Intent intent = new Intent(LoginActivity.this, ForgetActivity.class);
+                                    intent.putExtra("result_nama", nick);
+                                    startActivity(intent);
+                                } else {
+                                    String error_message = jsonResult.getString("error_msg");
+                                    Toast.makeText(mContext, "error_message", Toast.LENGTH_SHORT).show();
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            loading.dismiss();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                        Log.e("debug", "onFailure: ERROR >" + t.toString());
+                    }
+                });
     }
 }

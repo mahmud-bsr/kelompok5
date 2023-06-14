@@ -20,6 +20,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.nyoba.asdaqkebab.databinding.ActivityHomeBinding;
 import com.nyoba.asdaqkebab.databinding.FragmentLaporanBinding;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity implements
@@ -28,7 +30,8 @@ public class HomeActivity extends AppCompatActivity implements
     BottomNavigationView bottomNavView;
     private boolean tabelku = false;
     private FragmentLaporanBinding binding;
-
+    TextView tvResultNama;
+    String resultNama;
     SharedPreferences sharedPreferences;
 
     @Override
@@ -37,10 +40,14 @@ public class HomeActivity extends AppCompatActivity implements
         binding = FragmentLaporanBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_home);
 
-        TextView result = findViewById(R.id.txuser_toolbar);
+        TextView tvResultNama = findViewById(R.id.txuser_toolbar);
         sharedPreferences = getSharedPreferences("user_detail",MODE_PRIVATE);
 
-        result.setText(sharedPreferences.getString("username",null));
+//        Bundle extras = getIntent().getExtras();
+//        if (extras != null)
+//            resultNama = extras.getString("result_nama");
+//            tvResultNama.setText(resultNama);
+//        result.setText(sharedPreferences.getString("username",null));
 //        setContentView(binding.getRoot());
 //        final ArrayList<Items> laplist = Contstants.getItemsData();
 //        binding.rvItem.setLayoutManager(new LinearLayoutManager(this));

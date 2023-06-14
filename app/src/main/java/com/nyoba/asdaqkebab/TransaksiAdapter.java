@@ -5,18 +5,14 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.nyoba.asdaqkebab.databinding.CardItemsBinding;
 import com.nyoba.asdaqkebab.databinding.CardsTransaksiBinding;
 
 import java.util.ArrayList;
-import java.util.List;
-
 //
 public class TransaksiAdapter extends RecyclerView.Adapter<TransaksiAdapter.ItemViewHolder> {
 

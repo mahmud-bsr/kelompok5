@@ -35,11 +35,13 @@
                 android:id="@+id/txuser_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:visibility="gone"
                 android:layout_marginLeft="100dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginRight="100dp"
-                android:layout_marginBottom="5dp" />
+                android:layout_marginBottom="5dp"
+                android:textColor="#ECECEC"
+                android:visibility="visible"
+                tools:text="test" />
         </androidx.appcompat.widget.Toolbar>
     </LinearLayout>
 
