@@ -3,9 +3,9 @@ package com.nyoba.asdaqkebab.model;
 public class MenuModel {
     private String id_menu;
     private String nama_menu;
-    private String harga;
+    private int harga;
 
-    public MenuModel(String id_menu, String nama_menu, String harga) {
+    public MenuModel(String id_menu, String nama_menu, int harga) {
         this.id_menu = id_menu;
         this.nama_menu = nama_menu;
         this.harga = harga;
@@ -27,11 +27,11 @@ public class MenuModel {
         this.nama_menu = nama_menu;
     }
 
-    public String getHarga() {
+    public int getHarga() {
         return harga;
     }
 
-    public void setHarga(String harga) {
+    public void setHarga(int harga) {
         this.harga = harga;
     }
 }

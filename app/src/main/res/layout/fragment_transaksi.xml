@@ -19,15 +19,15 @@
         android:padding="10dp"
         android:textSize="18sp" ></Spinner>
 
-    <Spinner
-        android:id="@+id/sp_jumlah_barang"
+    <EditText
+        android:id="@+id/et_jumlah_barang"
         android:layout_width="161dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
         android:ems="10"
         android:hint="Jumlah Barang"
         android:padding="10dp"
-        android:textSize="18sp" ></Spinner>
+        android:textSize="16sp" ></EditText>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -75,17 +75,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="55dp"
                 android:text="Hapus" />
-
-            <Button
-                android:id="@+id/btn_batal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="55dp"
-                android:text="Batal" />
         </LinearLayout>
 
-        <TableLayout
-            android:id="@+id/tabel"
+        <ListView
+            android:id="@+id/listTransaksi"
             android:layout_width="381dp"
             android:layout_height="330dp"
             android:layout_margin="10dp"
@@ -93,50 +86,52 @@
             android:layout_marginTop="9dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="5dp"
-            android:background="@color/black"
             android:padding="3dp"
+            android:stretchColumns="*"
             app:layout_constraintBottom_toTopOf="@+id/button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
-            <TableRow
-                android:background="#413F3F"
-                android:padding="10dp">
+        </ListView>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Nama"
-                    android:textColor="#FFFEFE"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
+<!--            <TableRow-->
+<!--                android:background="#413F3F"-->
+<!--                android:padding="10dp">-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Jumlah"
-                    android:textColor="#FFFEFE"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="Nama"-->
+<!--                    android:textColor="#FFFEFE"-->
+<!--                    android:textSize="18dp"-->
+<!--                    android:textStyle="bold" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Harga"
-                    android:textColor="#FFFEFE"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="Jumlah"-->
+<!--                    android:textColor="#FFFEFE"-->
+<!--                    android:textSize="18dp"-->
+<!--                    android:textStyle="bold" />-->
 
-            </TableRow>
-        </TableLayout>
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="Harga"-->
+<!--                    android:textColor="#FFFEFE"-->
+<!--                    android:textSize="18dp"-->
+<!--                    android:textStyle="bold" />-->
+
+<!--            </TableRow>-->
+<!--        </TableLayout>-->
 
         <Button
             android:id="@+id/button"
@@ -152,6 +147,22 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tabel" />
+
+        <TextView
+            android:id="@+id/textViewTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginEnd="131dp"
+            android:layout_marginBottom="108dp"
+            android:text="TextView"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/listTransaksi" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

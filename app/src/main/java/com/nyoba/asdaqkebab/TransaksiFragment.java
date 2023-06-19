@@ -7,25 +7,31 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.nyoba.asdaqkebab.apihelper.BaseApiService;
 import com.nyoba.asdaqkebab.apihelper.RetrofitClient;
 import com.nyoba.asdaqkebab.apihelper.UtilsApi;
+import com.nyoba.asdaqkebab.model.ListAdapter;
+import com.nyoba.asdaqkebab.model.MenuAdapter;
 import com.nyoba.asdaqkebab.model.MenuModel;
 import com.nyoba.asdaqkebab.model.ResponseMenu;
+import com.nyoba.asdaqkebab.model.TransaksiItem;
+import com.nyoba.asdaqkebab.model.TransaksiModel;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -38,7 +44,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.GET;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -47,16 +52,24 @@ import retrofit2.http.GET;
  */
 public class TransaksiFragment extends Fragment {
     Spinner spinner_nama;
-    Spinner spinner_jumlah;
+    EditText et_jumlah;
+    TextView tvTotal;
+    Button tmblHapus, tmblTambah;
     private ArrayAdapter<MenuModel> adapter;
-    String nama, jumlah;
-    private Button tmblTambah;
-    ArrayList<String>daftar_nama;
-    ArrayList<String>daftar_jumlah;
-    Context mContext;
+    String namaBarang;
+    int harga;
+    int jumlah;
     BaseApiService mApiService;
     ProgressDialog loading;
-    TableLayout tabelTransaksi;
+    Call<TransaksiModel> dataTr;
+    private List<TransaksiItem> transaksiItems;
+    private ListView listView;
+    private ArrayAdapter<String> listAdapter;
+    private ArrayList<String> namabarangList;
+    private ArrayList<String> jumlahList;
+    private ArrayList<String> hargaList;
+    private ArrayList<String> hargaTotalList;
+    private int totalHarga = 0;
 
     public TransaksiFragment() {
         // Required empty public constructor
@@ -70,12 +83,28 @@ public class TransaksiFragment extends Fragment {
         Button tmblTambah = new Button(getActivity());
         tmblTambah = (Button) view.findViewById(R.id.btn_tambah);
         spinner_nama = (Spinner) view.findViewById(R.id.sp_nama_barang);
-        spinner_jumlah = (Spinner) view.findViewById(R.id.sp_jumlah_barang);
-        tabelTransaksi = (TableLayout) view.findViewById(R.id.tabel);
+        et_jumlah = (EditText) view.findViewById(R.id.et_jumlah_barang);
+        tmblHapus = (Button) view.findViewById(R.id.btn_hapus);
+        tvTotal = (TextView) view.findViewById(R.id.textViewTotal);
+        TextView textViewTotalHarga = view.findViewById(R.id.textViewHargaTotal);
+
+
+        listView = view.findViewById(R.id.listTransaksi);
+        namabarangList = new ArrayList<>();
+        jumlahList = new ArrayList<>();
+        hargaList = new ArrayList<>();
+        hargaTotalList = new ArrayList<>();
+
+
+
+        ListAdapter listAdapter = new ListAdapter(getActivity(), namabarangList, jumlahList, hargaList, hargaTotalList);
+        listView.setAdapter(listAdapter);
+
+        transaksiItems = new ArrayList<>();
 
         mApiService = UtilsApi.getAPIService();
 
-        BaseApiService baseApiService = RetrofitClient.getClient("http://192.168.4.213:8000/api/").create(BaseApiService.class);
+        BaseApiService baseApiService = RetrofitClient.getClient("http://192.168.1.7:8000/api/").create(BaseApiService.class);
         Call<ResponseMenu> call = baseApiService.getMenu();
         call.enqueue(new Callback<ResponseMenu>() {
             @Override
@@ -89,91 +118,15 @@ public class TransaksiFragment extends Fragment {
                     handleError(response);
                 }
             }
-
             @Override
             public void onFailure(Call<ResponseMenu> call, Throwable t) {
-
             }
         });
-
-
-//        Retrofit retrofit = new Retrofit.Builder()
-//                .baseUrl("http://192.168.1.3:8000/api/allmenu/")
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .build();
-
-
-//
-//            @Override
-//            public void onFailure(Call<List<String>> call, Throwable t) {
-//
-//            }
-//        });
-//        String jsonData = "[{'nama': 'Kebab biasa', 'jumlah': 10, 'harga': 150000}," +
-//                "{'nama': 'Burger', 'jumlah': 10, 'harga': 250000}," +
-//                "{'nama': 'Hotdog', 'jumlah': 15, 'harga': 450000}," +
-//                "{'nama': 'Burger Jumbo', 'jumlah': 20, 'harga': 450000}," +
-//                "{'nama': 'Kebab Jumbo', 'jumlah': 6, 'harga': 80000}," +
-//                "{'nama': 'Kebab Telur', 'jumlah': 5, 'harga': 100000}," +
-//                "{'nama': 'Kebab Sosis', 'jumlah': 5, 'harga': 80000}]";
-//        setData(jsonData);
-
-
-//        daftar_nama = new ArrayList<String>();
-//
-//        daftar_nama.add("Pak Hermawan");
-//        daftar_nama.add("Pak Tanto");
-//        daftar_nama.add("Bu Sulis");
-//        daftar_nama.add("Pak Putri");
-//        daftar_nama.add("Bu Marwan");
-//        daftar_nama.add("Pak Ugik");
-
-        daftar_jumlah = new ArrayList<String>();
-
-        daftar_jumlah.add("1");
-        daftar_jumlah.add("2");
-        daftar_jumlah.add("3");
-        daftar_jumlah.add("4");
-        daftar_jumlah.add("5");
-        daftar_jumlah.add("6");
-        daftar_jumlah.add("7");
-        daftar_jumlah.add("8");
-        daftar_jumlah.add("9");
-        daftar_jumlah.add("10");
-        daftar_jumlah.add("11");
-        daftar_jumlah.add("12");
-        daftar_jumlah.add("13");
-        daftar_jumlah.add("14");
-        daftar_jumlah.add("15");
-        daftar_jumlah.add("16");
-        daftar_jumlah.add("17");
-        daftar_jumlah.add("18");
-        daftar_jumlah.add("19");
-        daftar_jumlah.add("20");
-        daftar_jumlah.add("21");
-        daftar_jumlah.add("22");
-        daftar_jumlah.add("23");
-        daftar_jumlah.add("24");
-
-        ArrayAdapter<String> adapter_nama = new ArrayAdapter<>(getActivity(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,daftar_nama);
-        ArrayAdapter<String> adapter_jumlah = new ArrayAdapter<>(getActivity(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,daftar_jumlah);
-
-//        spinner_nama.setAdapter(adapter_nama);
-        spinner_jumlah.setAdapter(adapter_jumlah);
 
         spinner_nama.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                nama = spinner_nama.getSelectedItem().toString();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-        spinner_jumlah.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                jumlah = spinner_jumlah.getSelectedItem().toString();
+                namaBarang = spinner_nama.getSelectedItem().toString();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -182,37 +135,75 @@ public class TransaksiFragment extends Fragment {
         tmblTambah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!nama.equals("") && !jumlah.equals("")) {
+//                if (!nama.equals("") && !jumlah.equals("")) {
                     MenuModel menuModel = (MenuModel) spinner_nama.getSelectedItem();
                     String namaMenu = menuModel.getNama_menu();
+                    int hargaMenu = menuModel.getHarga();
+                String inputData = et_jumlah.getText().toString();
 
-                    // Buat baris baru untuk tabel
-                    TableRow newRow = new TableRow(getActivity());
 
-                    // Buat TextView untuk kolom nama
-                    TextView txtNama = new TextView(getActivity());
-                    txtNama.setText(namaMenu);
-                    newRow.addView(txtNama);
+                if (!inputData.isEmpty()) {
+                    String newDataMenu = namaMenu + ": " + inputData + "     ,Harga : " + hargaMenu;
+                    int dataharga = hargaMenu * Integer.parseInt(inputData);
+                    totalHarga += dataharga;
+                    namabarangList.add(newDataMenu);
+                    hargaList.add("Total : " + String.valueOf(dataharga));
+                    listAdapter.notifyDataSetChanged();
+                    et_jumlah.setText("");
+//                    tvTotal =
 
-                    // Buat TextView untuk kolom jumlah
-                    TextView txtJumlah = new TextView(getActivity());
-                    txtJumlah.setText(jumlah);
-                    newRow.addView(txtJumlah);
-
-                    // Buat TextView untuk kolom harga (contoh)
-//                    TextView txtHarga = new TextView(getContext());
-//                    txtHarga.setText(harga);
-//                    newRow.addView(txtHarga);
-
-                    // Tambahkan baris baru ke tabel layout
-                    tabelTransaksi.addView(newRow);
-
-                    Toast.makeText(getActivity(), "Anda Memilih " + namaMenu + jumlah, Toast.LENGTH_LONG).show();
+//                    textViewTotalHarga.setText("Total Harga: " + totalHarga);
+                } else {
+                    Toast.makeText(getActivity(), "Masukkan data terlebih dahulu", Toast.LENGTH_SHORT).show();
                 }
+//                    String namaBarang = spinner_nama.get().toString();
+//                    int jumlah = Integer.parseInt(et_jumlah.getSelectedItem().toString());
+//
+//                    TransaksiItem transaksiItem = new TransaksiItem(namaBarang, jumlah, harga);
+//                    transaksiItems.add(transaksiItem);
+
+
+//                    addItemToList();
+//                    Toast.makeText(getActivity(), "Anda Menambah " + jumlahText + " " + namaMenu , Toast.LENGTH_LONG).show();
+//                }
+            }
+        });
+
+        tmblHapus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
         });
 
         return view;
+    }
+
+    private void addItemToList() {
+        String selectedItem = spinner_nama.getSelectedItem().toString();
+        String enteredText = et_jumlah.getText().toString();
+
+        if (!TextUtils.isEmpty(selectedItem) && !TextUtils.isEmpty(enteredText)) {
+            String item = selectedItem + "   " + enteredText;
+            namabarangList.add(item);
+            listAdapter.notifyDataSetChanged();
+
+            // Reset input fields
+            spinner_nama.setSelection(0);
+            et_jumlah.setText("");
+        } else {
+            Toast.makeText(requireContext(), "Isi semua field", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+
+
+    private TransaksiItem createTransaksiItem(String selectedValue) {
+        // Membuat objek TransaksiItem dari item yang dipilih
+        // Misalnya, Anda bisa menggunakan logika untuk mengambil harga, jumlah, dll. berdasarkan item yang dipilih dari spinner
+        // Mengembalikan objek TransaksiItem yang baru dibuat
+        return new TransaksiItem(selectedValue, 1, (int) 10.0);
     }
     private void handleError(Response<ResponseMenu> response) {
         String errorMessage = "";
@@ -264,44 +255,5 @@ public class TransaksiFragment extends Fragment {
             }
         });
     }
-//    public class MenuItem {
-//        private String name;
-//
-//        public MenuItem(String name) {
-//            this.name = name;
-//        }
-//
-//        public String getName() {
-//            return name;
-//        }
-//    }
 }
-
-//    void setData(String jsonString){
-//        try {
-//            JSONArray jsonArray = new JSONArray(jsonString);
-//            TrArrayList = new ArrayList<>();
-//            for (int i=0; i<jsonArray.length(); i++){
-//                JSONObject jsonObject = jsonArray.getJSONObject(i);
-//                Transaksi items = new Transaksi(jsonObject.getString("nama"),
-//                        jsonObject.getInt("jumlah"),
-//                        jsonObject.getInt("pemasukkan"));
-//                TrArrayList.add(items);
-//            }
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//    private List<Transaksi> createTransaksi() {
-//        List<Transaksi>data = new ArrayList<>();
-//        data.add(new Transaksi("Kebab Jumbo",10,250000));
-//        data.add(new Transaksi("Kebab Asdaq",5,125000));
-//        data.add(new Transaksi("Burger Jumbo",10,300000));
-//        data.add(new Transaksi("Kebab",20,230000));
-//        data.add(new Transaksi("Hotdog",15,350000));
-//        data.add(new Transaksi("Burger Mini",10,250000));
-//        data.add(new Transaksi("Kebab Medium",9,180000));
-//
-//        return data;
-//    }
 

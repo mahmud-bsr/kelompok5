@@ -3,26 +3,15 @@ package com.nyoba.asdaqkebab;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.nyoba.asdaqkebab.databinding.ActivityHomeBinding;
 import com.nyoba.asdaqkebab.databinding.FragmentLaporanBinding;
-
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity implements
         BottomNavigationView.OnNavigationItemSelectedListener {
@@ -40,7 +29,7 @@ public class HomeActivity extends AppCompatActivity implements
         binding = FragmentLaporanBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_home);
 
-        TextView tvResultNama = findViewById(R.id.txuser_toolbar);
+        TextView tvResultNama = findViewById(R.id.txuser);
         sharedPreferences = getSharedPreferences("user_detail",MODE_PRIVATE);
 
 //        Bundle extras = getIntent().getExtras();
@@ -110,19 +99,4 @@ public class HomeActivity extends AppCompatActivity implements
 
     }
 
-//    public void ciutkanTabel(View view) {
-//        TableLayout table = findViewById(R.id.tabel);
-//        Button pencet = findViewById(R.id.Button);
-//
-//        table.setColumnCollapsed(1, tabelku);
-//        table.setColumnCollapsed(2, tabelku);
-//
-//        if (tabelku) {
-//            tabelku = false;
-//            pencet.setText("Tunjukkan detail");
-//        } else {
-//            tabelku = true;
-//            pencet.setText("Detail tersembunyi");
-//        }
-//    }
 }

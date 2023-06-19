@@ -1,4 +1,4 @@
-package com.nyoba.asdaqkebab;
+package com.nyoba.asdaqkebab.model;
 
 import android.content.Context;
 import android.view.LayoutInflater;

@@ -10,9 +10,10 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginBottom="9dp"
         android:gravity="top"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/flFragment"
+        app:layout_constraintBottom_toTopOf="@+id/txuser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -29,30 +30,36 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:subtitleTextColor="#ECECEC"
-            app:titleTextColor="#ececec" >
+            app:titleTextColor="#ececec">
 
-            <TextView
-                android:id="@+id/txuser_toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="100dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginRight="100dp"
-                android:layout_marginBottom="5dp"
-                android:textColor="#ECECEC"
-                android:visibility="visible"
-                tools:text="test" />
         </androidx.appcompat.widget.Toolbar>
     </LinearLayout>
 
-    <FrameLayout
-        android:id="@+id/flFragment"
-        android:layout_width="0dp"
-        android:layout_height="725dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+    <TextView
+        android:id="@+id/txuser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:gravity="left"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textColor="#ECECEC"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/flFragment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        tools:text="test" />
+
+    <FrameLayout
+        android:id="@+id/flFragment"
+        android:layout_width="409dp"
+        android:layout_height="698dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="92dp">
 
 
     </FrameLayout>
